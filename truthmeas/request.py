@@ -11,7 +11,6 @@ def _request(url):
         return _to_json(req.text)
     else:
         raise ConnectionError
-    pass
 
 
 def _to_json(request):
@@ -20,7 +19,6 @@ def _to_json(request):
         return data
     except simplejson.JSONDecodeError:
         raise simplejson.JSONDecodeError('Json error')
-    pass
 
 
 def _get_poke_id(name):
@@ -29,9 +27,13 @@ def _get_poke_id(name):
 
 
 def _get_poke_url(input_map):
-    map_key = input_map.keys()[0]
-    map_value = input_map.values()[0]
+    map_key = list(input_map.keys())[0]
+    map_value = list(input_map.values())[0]
 
-    poke_id = _get_poke_id(str(map_value))
+    poke_id = _get_poke_id(str(map_value)) + 1
+    return "/".join([BASE_URL, str(map_key), str(poke_id), ''])
 
-    return "/".join([BASE_URL, str(map_key), poke_id, ''])
+
+def make_request(input_map):
+    f_url = _get_poke_url(input_map)
+    return _request(f_url)
