@@ -1,14 +1,10 @@
 from beckett.clients import BaseClient
-from truthmeas.pokeresource import PokemonResource, TypeResource
-from truthmeas.request import choice, make_request
+from truthmeas.pokeresource import PokemonResource
+from truthmeas.request import CHOICE, make_request
 
 
 def get(**kwargs):
-    print(kwargs)
-    print(kwargs.keys())
-    print(list(kwargs.keys())[0])
-    if list(kwargs.keys())[0] in choice:
-        print(kwargs)
+    if list(kwargs.keys())[0] in CHOICE:
         return make_request(kwargs)
     else:
         raise ValueError
@@ -20,5 +16,4 @@ class PokeClient(BaseClient):
         base_url = 'http://pokeapi.co/api/v1'
         resources = (
             PokemonResource,
-            TypeResource
         )

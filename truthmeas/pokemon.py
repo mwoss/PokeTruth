@@ -42,17 +42,3 @@ class Pokemon(DateObject):
 
     def __repr__(self):
         return '<Pokemon - %s>' % self.name.capitalize()
-
-
-class Type(DateObject):
-    def __init__(self, json_list):
-        super(Type, self).__init__(json_list)
-        self.id = json_list['id']
-        self.name = json_list['name']
-        self.ineffective = dict_creator(json_list, 'ineffective')
-        self.resistance = dict_creator(json_list, 'resistance')
-        self.super_effective = dict_creator(json_list, 'super_effective')
-        self.weakness = dict_creator(json_list, 'weakness')
-
-    def __repr__(self):
-        return '<Type - %s>' % self.name.capitalize()

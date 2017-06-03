@@ -39,23 +39,3 @@ class PokemonResource(BaseResource):
             'male_female_ratio',
             'sprites',
         )
-
-
-class TypeResource(BaseResource):
-    class Meta(BaseResource.Meta):
-        name = 'Type'
-        resource_name = 'type'
-        identifier = 'id'
-        methods = (
-            'get',
-        )
-        attributes = (
-            'created',
-            'modified',
-            'id',
-            'name',
-            'ineffective',
-            'resistance',
-            'super_effective',
-            'weakness',
-        )
