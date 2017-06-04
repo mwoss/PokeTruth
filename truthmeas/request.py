@@ -28,12 +28,12 @@ def _to_json(request):
         data = simplejson.loads(request)
         return data
     except simplejson.JSONDecodeError:
-        raise simplejson.JSONDecodeError('Json error')
+        raise simplejson.JSONDecodeError
 
 
 def _get_poke_id(name):
     proper_input = name.capitalize()
-    return poke_list.index(proper_input);
+    return poke_list.index(proper_input)
 
 
 def _get_poke_url(input_map):

@@ -2,6 +2,7 @@ from truthmeas.poketruth import PokeTruth
 from truthmeas.customexception import NoPokemonFound, DemoVersionException
 import pytest
 
+
 class TestPokeTrust:
     def test_sentance1(self):
         truth = PokeTruth()
