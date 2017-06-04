@@ -14,7 +14,7 @@ class Pokemon(DateObject):
     def __init__(self, json_list):
         super(Pokemon, self).__init__(json_list)
         self.id = json_list['national_id']
-        self.abilitie = list_creator(json_list, 'abilities')
+        self.ability = list_creator(json_list, 'abilities')
         self.egg_group = list_creator(json_list, 'egg_groups')
         self.evolution = [
             f['to'] for f in json_list['evolutions']]
