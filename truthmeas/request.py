@@ -8,6 +8,13 @@ CHOICE = ['pokemon']
 CLASSES = {'pokemon': Pokemon, }
 
 
+def get(**kwargs):
+    if list(kwargs.keys())[0] in CHOICE:
+        return make_request(kwargs)
+    else:
+        raise ValueError
+
+
 def _request(url):
     req = requests.get(url)
     if req.status_code == 200:

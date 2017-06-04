@@ -1,6 +1,6 @@
 from truthmeas.data.pokemons import poke_list, args_set
-from truthmeas.customexception import DemoVersionException
-from truthmeas.parseclient import get
+from truthmeas.customexception import DemoVersionException, NoPokemonFound
+from truthmeas.request import get
 import re
 
 
@@ -22,7 +22,10 @@ class PokeTruth:
         sent_iter = 0
         while sent_iter < len(sentence_list):
             self._evaluate_single_sentence(poke_set, sentence_list[sent_iter])
-            pokemon_spec = get(pokemon=self.pokemon)
+            if self.pokemon != "":
+                pokemon_spec = get(pokemon=self.pokemon)
+            else:
+                raise NoPokemonFound
             self.sentence_truth.append(self._check_truth(pokemon_spec, sent_iter))
             sent_iter += 1
 
@@ -38,10 +41,10 @@ class PokeTruth:
             var = true_val != val
         if var:
             print(str(iterp + 1) + '. sentence is true')
-            self.sentence_truth.append(True)
+            return True
         else:
             print(str(iterp + 1) + '. sentence is false. True value of ' + arg + ' is ' + true_val)
-            self.sentence_truth.append(False)
+            return False
 
     def _evaluate_single_sentence(self, poke_set, sentence):
         words = sentence.split()

@@ -14,13 +14,13 @@ class Pokemon(DateObject):
     def __init__(self, json_list):
         super(Pokemon, self).__init__(json_list)
         self.id = json_list['national_id']
-        self.abilities = list_creator(json_list, 'abilities')
-        self.egg_groups = list_creator(json_list, 'egg_groups')
-        self.evolutions = [
+        self.abilitie = list_creator(json_list, 'abilities')
+        self.egg_group = list_creator(json_list, 'egg_groups')
+        self.evolution = [
             f['to'] for f in json_list['evolutions']]
         self.descriptions = list_creator(json_list, 'descriptions')
         self.moves = list_creator(json_list, 'moves')
-        self.types = list_creator(json_list, 'types')
+        self.type = list_creator(json_list, 'types')
         self.catch_rate = json_list['catch_rate']
         self.species = json_list['species']
         self.hp = json_list['hp']
@@ -30,7 +30,7 @@ class Pokemon(DateObject):
         self.sp_def = json_list['sp_def']
         self.speed = json_list['speed']
         self.total = json_list['total']
-        self.egg_cycles = json_list['egg_cycles']
+        self.egg_cycle = json_list['egg_cycles']
         self.ev_yield = json_list['ev_yield']
         self.exp = json_list['exp']
         self.growth_rate = json_list['growth_rate']
