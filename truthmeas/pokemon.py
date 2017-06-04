@@ -1,5 +1,5 @@
-def dict_creator(json_list, key_type):
-    return {typep['name']: typep['resource_uri'] for typep in json_list[key_type]}
+def list_creator(json_list, key_type):
+    return [typep['name'] for typep in json_list[key_type]]
 
 
 class DateObject(object):
@@ -14,13 +14,13 @@ class Pokemon(DateObject):
     def __init__(self, json_list):
         super(Pokemon, self).__init__(json_list)
         self.id = json_list['national_id']
-        self.abilities = dict_creator(json_list, 'abilities')
-        self.egg_groups = dict_creator(json_list, 'egg_groups')
-        self.evolutions = {
-            f['to']: f['resource_uri'] for f in json_list['evolutions']}
-        self.descriptions = dict_creator(json_list, 'descriptions')
-        self.moves = dict_creator(json_list, 'moves')
-        self.types = dict_creator(json_list, 'types')
+        self.abilities = list_creator(json_list, 'abilities')
+        self.egg_groups = list_creator(json_list, 'egg_groups')
+        self.evolutions = [
+            f['to'] for f in json_list['evolutions']]
+        self.descriptions = list_creator(json_list, 'descriptions')
+        self.moves = list_creator(json_list, 'moves')
+        self.types = list_creator(json_list, 'types')
         self.catch_rate = json_list['catch_rate']
         self.species = json_list['species']
         self.hp = json_list['hp']
@@ -38,7 +38,7 @@ class Pokemon(DateObject):
         self.weight = json_list['weight']
         self.happiness = json_list['happiness']
         self.male_female_ratio = json_list['male_female_ratio']
-        self.sprites = dict_creator(json_list, 'sprites')
+        self.sprites = list_creator(json_list, 'sprites')
 
     def __repr__(self):
         return '<Pokemon - %s>' % self.name.capitalize()

@@ -802,3 +802,27 @@ poke_list = [
     "Magearna",
     "Marshadow"
 ]
+
+args_set = {
+    'name',
+    'id',
+    'egg_group',
+    'egg_cycle',
+    'evolution',
+    'evolve',
+    'move',
+    'type',
+    'ability',
+    'move',
+    'catch rate',
+    'species',
+    'hp',
+    'attack',
+    'defense',
+    'speed',
+    'exp',
+    'growth_rate',
+    'height',
+    'weight'
+
+}
