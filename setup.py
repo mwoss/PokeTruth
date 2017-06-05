@@ -7,5 +7,5 @@ setup(name='poke_truth_measurer',
       author='Mateusz Wos',
       author_email='wos.mateusz16@gmail.com',
       license='MIT',
-      packages=['truthmeas', 'test', 'data'],
+      packages=['truthmeas', 'test'],
       install_requires=['requests', 'simplejson', 'pytest'])
