@@ -1,7 +1,8 @@
 import requests
-from truthmeas.data.pokemons import poke_list
 import simplejson
+
 from truthmeas.pokemon import Pokemon
+from truthmeas.pokemons import poke_list
 
 BASE_URL = 'http://pokeapi.co/api/v1'
 CHOICE = ['pokemon']

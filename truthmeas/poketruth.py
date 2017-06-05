@@ -1,7 +1,8 @@
-from truthmeas.data.pokemons import poke_list, args_set
-from truthmeas.customexception import DemoVersionException, NoPokemonFound
-from truthmeas.request import get
 import re
+
+from truthmeas.customexception import DemoVersionException, NoPokemonFound
+from truthmeas.pokemons import poke_list, args_set
+from truthmeas.request import get
 
 
 class PokeTruth:
