@@ -7,7 +7,8 @@ class TestPokeTrust:
     def test_sentance1(self):
         truth = PokeTruth()
         truth.evaluate_sentence(
-            'Bulbasaur is not water type pokemon and has 55 attack, he is 20 weight also has 7 height')
+            'Bulbasaur is not water type pokemon and has 55 attack,'
+            ' he is 20 weight also has 7 height')
         assert truth.sentence_truth == [True, False, False, True]
 
     def test_sentence2(self):

@@ -26,7 +26,8 @@ class PokeTruth:
                 pokemon_spec = get(pokemon=self.pokemon)
             else:
                 raise NoPokemonFound
-            self.sentence_truth.append(self._check_truth(pokemon_spec, sent_iter))
+            self.sentence_truth.append(self._check_truth(pokemon_spec,
+                                                         sent_iter))
             sent_iter += 1
 
     def _check_truth(self, pokemon_spec, iterp):
@@ -43,7 +44,8 @@ class PokeTruth:
             print(str(iterp + 1) + '. sentence is true')
             return True
         else:
-            print(str(iterp + 1) + '. sentence is false. True value of ' + arg + ' is ' + true_val)
+            print(str(iterp + 1) + '. sentence is false. True value of ' +
+                  arg + ' is ' + true_val)
             return False
 
     def _evaluate_single_sentence(self, poke_set, sentence):
@@ -62,7 +64,9 @@ class PokeTruth:
                 self.sentence_type.append(False)
             index += 1
         if self.poke_counter > 1:
-            raise DemoVersionException('Demo version of PokeTruth allows to evaluate sentence with only one Pokemon')
+            raise DemoVersionException('Demo version of PokeTruth'
+                                       ' allows to evaluate sentence '
+                                       'with only one Pokemon')
         if (sen_flag):
             self.sentence_type.append(True)
 
@@ -74,4 +78,5 @@ class PokeTruth:
             else:
                 return words[index + 2]
         except IndexError:
-            print('Out of array, something went wrong. Try to assemble sentence once again.')
+            print('Out of array, something went wrong.'
+                  ' Try to assemble sentence once again.')
